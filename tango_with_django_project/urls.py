@@ -20,7 +20,8 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='index'), #assume rango part is already cut
+    url(r'^about/', views.about, name='about'), #add url pattern for about page
     url(r'^rango/', include('rango.urls')),
     # above maps any URLs starting
     # with rango/ to be handled by
