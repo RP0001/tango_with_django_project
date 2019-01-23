@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %} <!--we use statics-->
+
+<html>
+
+    <head>
+        <title>About</title>
+    </head>
+
+    <body>
+        <h1>Rango says here is the about page.</h1>
+        <div>
+            <strong>{{ boldmessage }}</strong><br />
+        </div>
+        <div>
+            <a href = "/rango/"> Index</a><br />
+            <img src="{{ MEDIA_URL }}cat.jpg" alt="Cat media." />
+            <!--above we have a template tag, src is url, alt is alternate (non-display) text-->
+        </div>
+    </body>
+
+</html>
