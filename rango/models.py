@@ -34,10 +34,9 @@ class Page(models.Model):
     views = models.IntegerField(default=0)
     slug = models.SlugField(unique=True, default='null')
 
-    # COMMENTED THESE OUT FOR NOW TO MAKE test_form_error_when_category_field_empty WORK
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.title)
-    #     super(Page, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Page, self).save(*args, **kwargs)
 
     # This is toString()
     def __str__(self):
