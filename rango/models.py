@@ -5,11 +5,12 @@ from django.db import models
 # Each of these classes are really tables in the database
 # python manage.py sqlmigrate rango 0001 to view underlying sql
 # migration is a fancy term for sql_create
+name_max_length = 128  # Instead of repeating max length.
 
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=name_max_length, unique=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
@@ -28,7 +29,7 @@ class Category(models.Model):
 class Page(models.Model):
 
     category = models.ForeignKey(Category)
-    title = models.CharField(max_length=128, unique=True)
+    title = models.CharField(max_length=name_max_length, unique=True)
     url = models.URLField()
     views = models.IntegerField(default=0)
     slug = models.SlugField(unique=True, default='null')
