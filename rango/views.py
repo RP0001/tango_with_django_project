@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rango.models import Category  # Import the Category model
-from rango.models import Page
+from rango.models import Category, Page  # Import the Category and Page models
 from rango.forms import CategoryForm
 from rango.forms import PageForm
 
