@@ -10,7 +10,7 @@ name_max_length = 128  # Instead of repeating max length.
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=name_max_length, unique=True)
+    name = models.CharField(max_length=name_max_length, unique=True, blank=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)

@@ -5,7 +5,7 @@ from rango.models import name_max_length
 
 
 class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=name_max_length, help_text="Please enter the category name.")
+    name = forms.CharField(max_length=name_max_length, help_text="Please enter the category name. Field required:", required=True)
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -16,6 +16,12 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ('name',)
 
+    # def __init__(self, *args, **kwargs):
+    #     super(CategoryForm, self).__init__(*args, **kwargs)
+    #     self.fields['name'].error_messages = {'required': 'custom required message'}
+    #     for field in self.fields.values():
+    #         field.error_messages = {'required': 'Category required!'.format(
+    #             fieldname=field.label)}
 
 class PageForm(forms.ModelForm):
     title = forms.CharField(max_length=name_max_length, help_text="Please enter the title of the page.")
