@@ -9,6 +9,10 @@
     <div>
         <h1 class="page-header">Rango says here is the about page.</h1>
         This tutorial has been put together by Radu.
+        <p></p>
+        {% if visits %}
+            Visits: {{ visits }}
+        {% endif %}
 		</div>
 		<img src="{% static "images/rango_gun.jpg" %}" alt="Picture of Rango with gun" />
 		<p>
